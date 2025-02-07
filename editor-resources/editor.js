@@ -633,11 +633,11 @@ function show_link(name)
             jQuery('#link_commentposin').prepend("<option selected value='" + mylink.commentposin + "'>" + mylink.commentposin + "%</option>");
         }
         
-        document.getElementById('link_nodename1').firstChild.nodeValue = mylink.a;
-        document.getElementById('link_nodename1a').firstChild.nodeValue = mylink.a;
-        document.getElementById('link_nodename1b').firstChild.nodeValue = mylink.a;
+        document.getElementById('link_nodename1').firstChild.nodeValue = Nodes[mylink.a].label;
+        document.getElementById('link_nodename1a').firstChild.nodeValue = Nodes[mylink.a].label;
+        document.getElementById('link_nodename1b').firstChild.nodeValue = Nodes[mylink.a].label;
 
-        document.getElementById('link_nodename2').firstChild.nodeValue = mylink.b;
+        document.getElementById('link_nodename2').firstChild.nodeValue = Nodes[mylink.b].label;
 
         document.getElementById('param').value = mylink.name;
 
