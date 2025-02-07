@@ -470,20 +470,6 @@ if(isset($_REQUEST['command']) && $_REQUEST["command"]=='node_step1')
 
 <form name="mini">
 <?php 
-if($hosts->isNotEmpty()) {
-	print 'Host: <select name="host_id"  onChange="applyDSFilterChange(document.mini)">';
-
-	print '<option '.($host_id==-1 ? 'SELECTED' : '' ).' value="-1">Any</option>';
-	print '<option '.($host_id==0 ? 'SELECTED' : '' ).' value="0">None</option>';
-	foreach ($hosts as $host)
-	{
-		print '<option ';
-		if($host_id==$host['id']) print " SELECTED ";
-		print 'value="'.$host['id'].'">'.$host['name'].'</option>';
-	}
-	print '</select><br />';
-}
-
 	print '<span class="filter" style="display: none;">Filter: <input id="filterstring" name="filterstring" size="20"> (case-sensitive)<br /></span>';
 	print '<input id="overlib" name="overlib" type="checkbox" value="yes" '.($overlib ? 'CHECKED' : '' ).'> <label for="overlib">Set both OVERLIBGRAPH and INFOURL.</label><br />';
 
@@ -515,3 +501,4 @@ if($hosts->isNotEmpty()) {
 
 // vim:ts=4:sw=4:
 ?>
+
