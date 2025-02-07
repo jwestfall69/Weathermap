@@ -1107,7 +1107,7 @@ else
 		  <tr>
 			<th>'Hover' Graph URL</th>
 			<td><input id="node_hover" name="node_hover" type="text" />
-			<span class="cactinode"><a id="node_librenmspick">[Pick from LibreNMS]</a></span></td>
+			<span class="nodelibrenmspicker"><a id="node_librenmspick">[Pick from LibreNMS]</a></span></td>
 		  </tr>
 		  <tr>
 			<th>Icon Filename</th>
