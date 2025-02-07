@@ -35,8 +35,9 @@ $valid_show_interfaces = array (
 	 */
 	/* Load Weathermap config defaults, see file for description. */
 
-    $init_modules = ['web', 'auth'];
-    require $librenms_base . '/includes/init.php';
+	$init_modules = ['web', 'auth'];
+	require $librenms_base . '/includes/init.php';
+	require $librenms_base . '/config.php';
 
 	if (!Auth::check()) {
 		header('Location: /');
