@@ -1080,6 +1080,7 @@ else
 	  <div class="dlgTitlebar">
 		Node Properties
 		<input size="6" name="node_name" type="hidden" />
+		<input size="6" name="node_new_name" id="node_new_name" type="hidden" />
 		<ul>
 		  <li><a id="tb_node_submit" class="wm_submit" title="Submit any changes made">Submit</a></li>
 		  <li><a id="tb_node_cancel" class="wm_cancel" title="Cancel any changes">Cancel</a></li>
@@ -1092,10 +1093,6 @@ else
 			<th>Position</th>
 			<td><input id="node_x" name="node_x" size=4 type="text" />,<input id="node_y" name="node_y" size=4 type="text" /></td>
 		</tr>
-		  <tr>
-			<th>Internal Name</th>
-			<td><input id="node_new_name" name="node_new_name" type="text" /></td>
-		  </tr>
 		  <tr>
 			<th>Label</th>
 			<td><input id="node_label" name="node_label" type="text" /></td>
