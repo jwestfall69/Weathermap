@@ -334,8 +334,11 @@ if($hosts->isNotEmpty()) {
                     echo "<li class=\"row" . ($i % 2) . "\">";
                     $key = $device->device_id . "','" . $device->hostname . "','" . $port->port_id . "','" . addslashes($port->ifAlias) . "','" . addslashes($port->ifDescr) . "','" . (int)$port->ifIndex;
 
-                    echo "<a href=\"#\" onclick=\"update_source_step1('$key')\">" . $device->displayName() . "/$port->ifDescr Desc: $port->ifAlias</a>";
-                    echo "</li>\n";
+                    echo "<a href=\"#\" onclick=\"update_source_step1('$key')\">" . $device->displayName() . "/$port->ifDescr Desc: $port->ifAlias";
+                    if(is_int($port->ifSpeed)) {
+                        echo " (" . $port->ifSpeed / 1000000000 . "G)";
+                    }
+                    echo "</a></li>\n";
                 }
                 $i++;
             }
