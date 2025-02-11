@@ -262,7 +262,9 @@ function librenmspicker()
 
 function nodelibrenmspicker()
     {
-        // make sure it isn't already opened
+	node1 = document.getElementById('node_label').value;
+
+    // make sure it isn't already opened
     if (!newWindow || newWindow.closed)
         {
 		newWindow = window.open("", "librenmspicker", "scrollbars=1,status=1,height=400,width=400,resizable=1");
@@ -274,7 +276,7 @@ function nodelibrenmspicker()
         newWindow.focus();
         }
 
-        newWindow.location = "data-pick.php?command=node_step1";
+        newWindow.location = "data-pick.php?command=node_step1&node1=" + node1;
     }
 
 function show_context_help(itemid, targetid)

@@ -404,6 +404,10 @@ if(isset($_REQUEST['command']) && $_REQUEST["command"]=='node_step1')
 			var previous = $('input#filterstring').val();
 			setTimeout(function () {filterlist(previous)}, 500);
 		}).show();
+
+		// force filter on ready since node label is used as initial
+		// value of the filter
+		filterlist();
 	});
 
 	function applyDSFilterChange(objForm) {
@@ -473,7 +477,14 @@ if(isset($_REQUEST['command']) && $_REQUEST["command"]=='node_step1')
 
 <form name="mini">
 <?php 
-	print '<span class="filter" style="display: none;">Filter: <input id="filterstring" name="filterstring" size="20"> (case-sensitive)<br /></span>';
+
+	$node1 = "";
+	if(isset($_REQUEST['node1']))
+	{
+		$node1 = $_REQUEST['node1'];
+	}
+
+	print '<span class="filter" style="display: none;">Filter: <input id="filterstring" name="filterstring" value="' . $node1 . '" size="20"> (case-sensitive)<br /></span>';
 	print '<input id="overlib" name="overlib" type="checkbox" value="yes" '.($overlib ? 'CHECKED' : '' ).'> <label for="overlib">Set both OVERLIBGRAPH and INFOURL.</label><br />';
 
 	print '</form><div class="listcontainer"><ul id="dslist">';
