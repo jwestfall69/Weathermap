@@ -246,7 +246,7 @@ function librenmspicker()
     // make sure it isn't already opened
     if (!newWindow || newWindow.closed)
         {
-        newWindow = window.open("", "librenmspicker", "scrollbars=1,status=1,height=400,width=400,resizable=1");
+        newWindow = window.open("", "librenmspicker", "scrollbars=1,status=1,height=400,width=600,resizable=1");
         }
 
     else if (newWindow.focus)
