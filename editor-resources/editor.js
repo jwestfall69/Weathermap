@@ -130,9 +130,9 @@ function attach_click_events()
     jQuery('#link_librenmspick').click(librenmspicker).attr("href","#");
     jQuery('#node_librenmspick').click(nodelibrenmspicker).attr("href","#");
     
-    jQuery('#xycapture').mouseover(function(event) {coord_capture(event);});
-    jQuery('#xycapture').mousemove(function(event) {coord_update(event);});
-    jQuery('#xycapture').mouseout(function(event) {coord_release(event);});
+    jQuery('*').mouseover(function(event) {coord_capture(event);});
+    jQuery('*').mousemove(function(event) {coord_update(event);});
+    jQuery('*').mouseout(function(event) {coord_release(event);});
         
     }
 
@@ -702,14 +702,28 @@ function coord_update(event)
 {
     var cursorx = event.pageX;
     var cursory = event.pageY;
- 
-    // Adjust for coords relative to the image, not the document
-    var p = new ElementPosition('xycapture');
-    cursorx -= p.x;
-    cursory -= p.y;
-    cursory++; // fudge to make coords match results from imagemap (not sure why this is needed)
-        
-    jQuery('#tb_coords').html('Position<br />'+ cursorx + ', ' + cursory);
+
+    if (document.getElementById('xycapture').style.display == 'inline')
+    {
+        var e = document.getElementById('xycapture');
+        cursorx -= e.offsetLeft;
+        cursory -= e.offsetTop;
+    }
+    else if (document.getElementById('existingdata').style.display == 'inline')
+    {
+        var e = document.getElementById('existingdata');
+        cursorx -= e.offsetLeft;
+        cursory -= e.offsetTop;
+    }
+
+    if(cursorx < 0 || cursory < 0)
+    {
+	jQuery('#tb_coords').html('Position<br />---, ---');
+    }
+    else
+    {
+	jQuery('#tb_coords').html('Position<br />'+ cursorx + ', ' + cursory);
+    }
 }
 
 function coord_release(event)
