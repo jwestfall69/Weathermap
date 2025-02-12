@@ -3672,7 +3672,18 @@ class WeatherMap extends WeatherMapBase
                     }
 
                     foreach ($dirs as $dir => $parts) {
-                        $caption = ($myobj->overlibcaption[$dir] != '' ? $myobj->overlibcaption[$dir] : $myobj->name);
+                        if ($myobj->overlibcaption[$dir] == '') {
+                            if ($type == 'LINK') {
+                                $caption = "{node:_linkstart_:label} <=> {node:_linkend_:label} ({link:this:max_bandwidth_in:%k})";
+                            } else if($type == 'NODE') {
+                                $caption = "{node:this:label}";
+                            } else {
+                                $caption = $myobj->name;
+                            }
+                        } else {
+                            $caption = $myobj->overlibcaption[$dir];
+                        }
+
                         $caption = $this->ProcessString($caption, $myobj);
 
                         $overlibhtml = "onmouseover=\"return overlib('";
