@@ -185,7 +185,7 @@ if(isset($_REQUEST['command']) && $_REQUEST["command"]=='link_step1')
                         opener.document.forms["frmMain"].node_label.value ='testing';
                         opener.document.forms["frmMain"].link_infourl.value = info_url;
                         opener.document.forms["frmMain"].link_hover.value = graph_url;
-                        if(ifSpeed)
+                        if(ifSpeed && ifSpeed > 0)
                         {
                                 opener.document.forms["frmMain"].link_bandwidth_in.value = (ifSpeed / 1000000000).toString() + "G";
                         }
@@ -339,7 +339,7 @@ if($hosts->isNotEmpty()) {
                     $key = $device->device_id . "','" . $device->hostname . "','" . $port->port_id . "','" . addslashes($port->ifAlias) . "','" . addslashes($port->ifDescr) . "','" . (int)$port->ifIndex . "','" . $port->ifSpeed;
 
                     echo "<a href=\"#\" onclick=\"update_source_step1('$key')\">" . $device->displayName() . "/$port->ifDescr Desc: $port->ifAlias";
-                    if(is_int($port->ifSpeed)) {
+                    if(is_int($port->ifSpeed) && $port->ifSpeed > 0) {
                         echo " (" . $port->ifSpeed / 1000000000 . "G)";
                     }
                     echo "</a></li>\n";
