@@ -69,6 +69,15 @@ function initJS()
 
         // set the mapmode, so we know where we stand.
         mapmode('existing');
+
+        if (document.getElementById('action').value == "show_newnode")
+            {
+            node_name = document.getElementById('param2').value;
+            if (node_name in Nodes)
+                {
+                show_node(node_name);
+                }
+            }
         }
     }
 

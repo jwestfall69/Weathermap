@@ -872,6 +872,8 @@ else
 		$log = "added a node called $newnodename at $x,$y to $mapfile";
 						
 		$map->WriteConfig($mapfile);
+		$newaction = 'show_newnode';
+		$param2 = $node->name;
 		break;
 
 	case "editor_settings":
